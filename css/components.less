@@ -10,7 +10,27 @@
 	}
 }
 
-.search-result {	
+.search-result {
+	position: relative;
+	min-height: 280px;
+	.preloader {
+		position: absolute;
+		margin: auto;
+		overflow: auto;
+		top: 0; left: 0; right: 0; bottom: 0;
+	}
+	#name {
+		text-align: center;
+	}	
 	background: rgba(255,255,255, .85);
-	margin-top: 1em;
+	margin-top: .8em;
+	padding: 1em;
+	#description {
+		margin-left: .5em;
+	}
+	img {
+		border-radius: 50%;
+		max-width: 170px;
+		margin: 0 auto;
+	}
 }
