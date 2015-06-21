@@ -17,8 +17,8 @@ gulp.task('browser-sync', function() {
 // process JS files and return the stream.
 gulp.task('js', function () {
     return gulp.src(['js/vendor/*.js','js/*.js'])
-    		//.pipe(uglify())
-    		.pipe(concat('main.js'))
+    		.pipe(uglify())
+    		.pipe(concat('main.min.js'))
 	        .pipe(gulp.dest('dist/js'));
 });
 
