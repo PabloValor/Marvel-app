@@ -2,6 +2,10 @@
 <html lang="en">
 <head>
 	<meta charset="UTF-8">
+		<meta property="og:title" content="Marvel Database App"/>
+	<meta property="og:image" content="images/bg.jpg"/>
+	<meta property="og:site_name" content="Marvel Data Base App"/>
+	<meta property="og:description" content="Search your heros!"/>
 	<title>Marvel Search Database</title>
 	<link rel='icon' href='/Marvel-app/favicon.ico'/>
 	<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
@@ -43,6 +47,35 @@
 	</div>
 	<footer>
 		<h3>Created by Pablo Valor</h3>
+	    	<p class="social">
+	    	<span>
+	    		<!--Facebook stuff -->
+				<div id="fb-root"></div>
+				<script>(function(d, s, id) {
+				  var js, fjs = d.getElementsByTagName(s)[0];
+				  if (d.getElementById(id)) return;
+				  js = d.createElement(s); js.id = id;
+				  js.src = "//connect.facebook.net/es_LA/sdk.js#xfbml=1&version=v2.3";
+				  fjs.parentNode.insertBefore(js, fjs);
+				}(document, 'script', 'facebook-jssdk'));</script>
+				<div class="fb-share-button" data-href="http://pablovalor.github.io/Marvel-app/" data-layout="button_count"></div>				
+				<!-- /Facebook stuff -->
+	    	</span>
+	    	<span>
+	    		<!--Twitter stuff -->
+				<a href="https://twitter.com/pablovalor" class="twitter-follow-button" data-show-count="false">Follow @pablovalor</a>
+				<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
+				<!-- /Twitter stuff -->
+	    	</span>
+	    	<span>
+	    		<!--googleplus stuff -->
+				<!-- Place this tag in your head or just before your close body tag. -->
+				<script src="https://apis.google.com/js/platform.js" async defer></script>
+
+				<!-- Place this tag where you want the widget to render. -->
+				<div class="g-follow" data-annotation="bubble" data-height="20" data-href="//plus.google.com/u/0/109573404958606765968" data-rel="author"></div>
+				<!--/googleplus stuff -->
+	    	</span>		
 	</footer>
 
 	<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
