@@ -11,6 +11,8 @@ $(document).on('ready', function(){
 	var $image = $('#image');
 	var $description = $('#description');
 	var $preloader = $('.preloader');
+	var $seriesList = $('ul#series-list');
+	var series = [];
 
 	$searchInput.focus();
 
@@ -22,7 +24,7 @@ $(document).on('ready', function(){
 
 		$searchInput.focus();
 
-		hideFields($name, $image, $description);
+		hideFields($name, $image, $description, $seriesList);
 		clearFields($name, $image, $description);
 		$preloader.show();
 
@@ -32,13 +34,24 @@ $(document).on('ready', function(){
 
 			success: function(data) {
 				var hero = data.data.results[0];
-				showFields($name, $image, $description);
+
+				showFields($name, $image, $description, $seriesList);
+
 				if (typeof hero === "undefined") {
 					$name.text("humm, try it again... :/");
 				} else {
+					series = hero.series.items; // getting the series realted with this character
 					$name.text(hero.name);
 					$image.attr('src', hero.thumbnail.path + '.' + hero.thumbnail.extension);
 					$description.text(hero.description);
+
+					for(var item in series) {
+						$seriesList.append(
+							$('<li></li>').append (
+								series[item].name
+							)
+						);
+					}
 				}
 			},
 			error: function(err) {
@@ -56,15 +69,17 @@ $(document).on('ready', function(){
 		$image.attr('src', 'images/placeholder.png');
 		$description.text('');
 	}
-	function hideFields($name, $image, $description) {
+	function hideFields($name, $image, $description, $seriesList) {
 		$name.hide();
 		$image.hide();
 		$description.hide();
+		$seriesList.hide();
 	}
-	function showFields($name, $image, $description) {
+	function showFields($name, $image, $description, $seriesList) {
 		$name.show();
 		$image.show();
 		$description.show();
+		$seriesList.show();
 	}		
 });
 

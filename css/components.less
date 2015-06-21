@@ -22,15 +22,37 @@
 	#name {
 		text-align: center;
 	}	
-	background: rgba(255,255,255, .85);
+	background: rgba(255,255,255, .91);
 	margin-top: .8em;
 	padding: 1em;
 	#description {
 		margin-left: .5em;
 	}
 	img {
+		border: 2px solid gray;
 		border-radius: 50%;
 		max-width: 170px;
 		margin: 0 auto;
+		transition: .5s;
+		&:hover {
+			transform: scale(1.075);
+		}
+	}
+}
+
+.series-list {
+	h3 {
+		text-align: center;
+	}
+	ul{
+		background: silver;
+		padding: 1.5em;
+		li{
+			font-size: .8em;
+			padding: .5em;
+			&:nth-child(odd) {
+				background: #CCC;
+			}
+		}		
 	}
 }
