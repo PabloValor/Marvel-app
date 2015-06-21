@@ -3,12 +3,28 @@
 <head>
 	<meta charset="UTF-8">
 	<title>Marvel Search</title>
-	<style type="text/css" src="dist/css/main.css"></style>
+	<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+	<link rel="stylesheet" type="text/css" href="http://yui.yahooapis.com/pure/0.6.0/pure-min.css">
+	<link rel="stylesheet" type="text/css" href="http://yui.yahooapis.com/pure/0.6.0/grids-responsive-min.css">
+	<link rel="stylesheet" type="text/css" href="dist/css/main.min.css">
 </head>
 <body>
-	<h1></h1>
-	<img src="" alt="">
-	<p></p>
+	<div class="wrapper">
+		<h1>MARVEL Database</h1>
+		<div class="search-form">
+			<form method="GET" action="" id="form" class="pure-form pure-g">
+				<input type="text" id="search" placeholder="Hero name" class="pure-u-1 pure-u-md-20-24" required>
+				<button type="submit" id="searchBtn" class="pure-button pure-button-primary pure-u-md-4-24 hide show-from-md">Search</button>
+			</form>			
+		</div>
+
+		<div class="search-result">
+			<img src="images/preloader.GIF" alt="preloader" class="preloader">
+			<h2 id="name"></h2>
+			<img src="" alt="hero image" id="image">
+			<p id="description"></p>
+		</div>		
+	</div>
 
 	<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
 	<script type="text/javascript" src="dist/js/main.js"></script>

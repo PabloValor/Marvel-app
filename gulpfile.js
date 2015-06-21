@@ -24,14 +24,14 @@ gulp.task('js', function () {
 
 // process LESS files and return the stream.
 gulp.task('less', function () {
-    return gulp.src(['css/*.less', 'css/vendor/*.css'])
+    return gulp.src(['css/main.less'])
 	    	.pipe(less({compress: true}))
-	    	.pipe(concat('main.css'))	        
+	    	.pipe(concat('main.min.css'))	        
 	        .pipe(gulp.dest('dist/css'));
 });
 
 gulp.watch('js/**/*.js', ['js']);
-gulp.watch('css/*.less', ['less']);
+gulp.watch('css/**/*.less', ['less']);
 gulp.watch('*.html').on('change', browserSync.reload);
 gulp.watch('dist/**').on('change', browserSync.reload);
 
