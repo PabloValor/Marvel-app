@@ -1,4 +1,24 @@
+header {
+	background: url('../../images/bg.jpg');
+	background-size: cover;
+	background-repeat: no-repeat;
+	background-position: top center;	
+	display: table;
+	margin-top: 1em;
+	min-height: 300px; 
+	width: 100%;
+	h1{
+		display: table-cell;
+		text-align: center;
+		vertical-align: middle;
+		a {
+			color: white;
+			text-decoration: none;
+		}
+	}	
+}
 .search-form {
+	margin-top: 1em;
 	#search {
 		border: 3px solid #0078E7;
 		border-top-right-radius: 0;
@@ -11,6 +31,9 @@
 }
 
 .search-result {
+	background: rgba(255,255,255, .91);
+	margin: .8em 0;
+	padding: 1em;
 	position: relative;
 	min-height: 280px;
 	.preloader {
@@ -22,9 +45,6 @@
 	#name {
 		text-align: center;
 	}	
-	background: rgba(255,255,255, .91);
-	margin-top: .8em;
-	padding: 1em;
 	#description {
 		margin-left: .5em;
 	}
@@ -54,5 +74,18 @@
 				background: #CCC;
 			}
 		}		
+	}
+}
+
+footer {
+	color: white;
+	display: table;
+	font-size: .7em;
+	text-align: center;	
+	min-height: 110px;
+	width: 100%;
+	h3 {
+		display: table-cell;
+		vertical-align: middle;
 	}
 }

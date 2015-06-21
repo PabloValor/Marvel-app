@@ -25,7 +25,7 @@ $(document).on('ready', function(){
 		$searchInput.focus();
 
 		hideFields($name, $image, $description, $seriesList);
-		clearFields($name, $image, $description);
+		clearFields($name, $image, $description, series);
 		$preloader.show();
 
 		$.ajax({
@@ -38,6 +38,7 @@ $(document).on('ready', function(){
 				showFields($name, $image, $description, $seriesList);
 
 				if (typeof hero === "undefined") {
+					hideFields($name, $image, $description, $seriesList);
 					$name.text("humm, try it again... :/");
 				} else {
 					series = hero.series.items; // getting the series realted with this character
@@ -64,8 +65,8 @@ $(document).on('ready', function(){
 		});
 	});
 
-	function clearFields($name, $image, $description) {
-		//$name.text('');
+	function clearFields($name, $image, $description, series) {
+		$name.text('');
 		$image.attr('src', 'images/placeholder.png');
 		$description.text('');
 	}
