@@ -13,9 +13,10 @@ $(document).on('ready', function(){
 	var $preloader = $('.preloader');
 	var $seriesList = $('ul#series-list');
 	var series = [];
-
+	var data = {}; // mustache source
+	
 	$searchInput.focus();
-
+	
 	//clear all the fields
 	clearFields($name, $image, $description);
 
@@ -27,32 +28,34 @@ $(document).on('ready', function(){
 		hideFields($name, $image, $description, $seriesList);
 		clearFields($name, $image, $description, series);
 		$preloader.show();
-
+		
+		function loadHero(data) {
+			var template = $('#template').html();
+			Mustache.parse(template); //cache the template for future uses
+			var rendered = Mustache.render(template, data);
+			$('#target').html(rendered);
+		}		
+		
 		$.ajax({
 			type: 'GET',
 			url: url + '?' + 'name=' + $searchInput.val() + '&' +'apikey=' + API_KEY,
 
-			success: function(data) {
-				var hero = data.data.results[0];
-
+			success: function(result) {
+				var hero = result.data.results[0];
 				showFields($name, $image, $description, $seriesList);
 
 				if (typeof hero === "undefined") {
 					hideFields($name, $image, $description, $seriesList);
 					$name.text("humm, try it again... :/");
+					$name.show();
 				} else {
-					series = hero.series.items; // getting the series realted with this character
-					$name.text(hero.name);
-					$image.attr('src', hero.thumbnail.path + '.' + hero.thumbnail.extension);
-					$description.text(hero.description);
-
-					for(var item in series) {
-						$seriesList.append(
-							$('<li></li>').append (
-								series[item].name
-							)
-						);
-					}
+					data.name = hero.name;
+					
+					data.image = hero.thumbnail.path + "." + hero.thumbnail.extension;
+					data.description = hero.description;
+					data.series = hero.series.items;  // getting the series realted with this character
+					
+					loadHero(data); // Render mustache template with the data
 				}
 			},
 			error: function(err) {

@@ -24,26 +24,36 @@
 				<button type="submit" id="searchBtn" class="pure-button pure-button-primary pure-u-md-4-24 util-hide show-from-md">Search</button>
 			</form>			
 		</div>
-
 		<div class="search-result">
-			<img src="images/preloader.GIF" alt="preloader" class="preloader">
-			<h2 id="name"></h2>
-			<hr>
-			<div class="pure-g">
-				<div class="pure-u-1 pure-u-md-6-24 util-content-center">
-					<img src="" alt="hero image" id="image">
-				</div>
-				<div class="pure-u-1 pure-u-md-18-24">
-					<p id="description"></p>
-				</div>
-				<div class="pure-u-1">
-					<div class="series-list">
-						<h3>This character appears in the folowing series</h3>
-						<ul id="series-list">
-						</ul>						
-					</div>
-				</div>
+		
+			<div id="target">
+				<img src="images/preloader.GIF" alt="preloader" class="preloader">
+				<h2 id="name"></h2>
 			</div>
+			
+			<script id="template" type="x-tmpl-mustache">
+				<h2 id="name">{{name}}</h2>
+				<hr>
+				<div class="pure-g">
+					<div class="pure-u-1 pure-u-md-6-24 util-content-center">
+						<img src="{{image}}" alt="{{name}} avatar" id="image">
+					</div>
+					<div class="pure-u-1 pure-u-md-18-24">
+						<p id="description">{{description}}</p>
+					</div>
+					<div class="pure-u-1">
+						<div class="series-list">
+							<h3>This character appears in the folowing series</h3>
+							
+							<ul id="series-list">
+								{{#series}}
+								<li>{{name}}</li>
+								{{/series}}							
+							</ul>
+						</div>
+					</div>
+				</div>				
+			</script>
 		</div>		
 	</div>
 	<footer>
